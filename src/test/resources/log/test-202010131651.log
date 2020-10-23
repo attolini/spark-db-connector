@@ -1,0 +1,100 @@
+20/10/13 16:51:17 ERROR DDLTask: org.apache.hadoop.hive.ql.metadata.HiveException: Exception while processing
+	at org.apache.hadoop.hive.ql.exec.DDLTask.truncateTable(DDLTask.java:4376)
+	at org.apache.hadoop.hive.ql.exec.DDLTask.execute(DDLTask.java:499)
+	at org.apache.hadoop.hive.ql.exec.Task.executeTask(Task.java:160)
+	at org.apache.hadoop.hive.ql.exec.TaskRunner.runSequential(TaskRunner.java:88)
+	at org.apache.hadoop.hive.ql.Driver.launchTask(Driver.java:1653)
+	at org.apache.hadoop.hive.ql.Driver.execute(Driver.java:1412)
+	at org.apache.hadoop.hive.ql.Driver.runInternal(Driver.java:1195)
+	at org.apache.hadoop.hive.ql.Driver.run(Driver.java:1059)
+	at org.apache.hadoop.hive.ql.Driver.run(Driver.java:1049)
+	at org.apache.spark.sql.hive.client.ClientWrapper$$anonfun$runHive$1.apply(ClientWrapper.scala:495)
+	at org.apache.spark.sql.hive.client.ClientWrapper$$anonfun$runHive$1.apply(ClientWrapper.scala:484)
+	at org.apache.spark.sql.hive.client.ClientWrapper$$anonfun$withHiveState$1.apply(ClientWrapper.scala:290)
+	at org.apache.spark.sql.hive.client.ClientWrapper.liftedTree1$1(ClientWrapper.scala:237)
+	at org.apache.spark.sql.hive.client.ClientWrapper.retryLocked(ClientWrapper.scala:236)
+	at org.apache.spark.sql.hive.client.ClientWrapper.withHiveState(ClientWrapper.scala:279)
+	at org.apache.spark.sql.hive.client.ClientWrapper.runHive(ClientWrapper.scala:484)
+	at org.apache.spark.sql.hive.client.ClientWrapper.runSqlHive(ClientWrapper.scala:474)
+	at org.apache.spark.sql.hive.HiveContext.runSqlHive(HiveContext.scala:605)
+	at org.apache.spark.sql.hive.execution.HiveNativeCommand.run(HiveNativeCommand.scala:33)
+	at org.apache.spark.sql.execution.ExecutedCommand.sideEffectResult$lzycompute(commands.scala:58)
+	at org.apache.spark.sql.execution.ExecutedCommand.sideEffectResult(commands.scala:56)
+	at org.apache.spark.sql.execution.ExecutedCommand.doExecute(commands.scala:70)
+	at org.apache.spark.sql.execution.SparkPlan$$anonfun$execute$5.apply(SparkPlan.scala:132)
+	at org.apache.spark.sql.execution.SparkPlan$$anonfun$execute$5.apply(SparkPlan.scala:130)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:150)
+	at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:130)
+	at org.apache.spark.sql.execution.QueryExecution.toRdd$lzycompute(QueryExecution.scala:55)
+	at org.apache.spark.sql.execution.QueryExecution.toRdd(QueryExecution.scala:55)
+	at org.apache.spark.sql.DataFrame.<init>(DataFrame.scala:145)
+	at org.apache.spark.sql.DataFrame.<init>(DataFrame.scala:130)
+	at org.apache.spark.sql.DataFrame$.apply(DataFrame.scala:52)
+	at org.apache.spark.sql.SQLContext.sql(SQLContext.scala:817)
+	at com.valuepartners.libs.spark.SparkSpec$$anonfun$1.apply(SparkSpec.scala:18)
+	at org.scalatest.OutcomeOf$class.outcomeOf(OutcomeOf.scala:85)
+	at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)
+	at org.scalatest.Transformer.apply(Transformer.scala:22)
+	at org.scalatest.Transformer.apply(Transformer.scala:20)
+	at org.scalatest.wordspec.AnyWordSpecLike$$anon$1.apply(AnyWordSpecLike.scala:1076)
+	at org.scalatest.TestSuite$class.withFixture(TestSuite.scala:196)
+	at org.scalatest.wordspec.AnyWordSpec.withFixture(AnyWordSpec.scala:1879)
+	at org.scalatest.wordspec.AnyWordSpecLike$class.invokeWithFixture$1(AnyWordSpecLike.scala:1073)
+	at org.scalatest.wordspec.AnyWordSpecLike$$anonfun$runTest$1.apply(AnyWordSpecLike.scala:1086)
+	at org.scalatest.wordspec.AnyWordSpecLike$$anonfun$runTest$1.apply(AnyWordSpecLike.scala:1086)
+	at org.scalatest.SuperEngine.runTestImpl(Engine.scala:306)
+	at org.scalatest.wordspec.AnyWordSpecLike$class.runTest(AnyWordSpecLike.scala:1086)
+	at org.scalatest.wordspec.AnyWordSpec.runTest(AnyWordSpec.scala:1879)
+	at org.scalatest.wordspec.AnyWordSpecLike$$anonfun$runTests$1.apply(AnyWordSpecLike.scala:1145)
+	at org.scalatest.wordspec.AnyWordSpecLike$$anonfun$runTests$1.apply(AnyWordSpecLike.scala:1145)
+	at org.scalatest.SuperEngine$$anonfun$traverseSubNodes$1$1.apply(Engine.scala:413)
+	at org.scalatest.SuperEngine$$anonfun$traverseSubNodes$1$1.apply(Engine.scala:401)
+	at scala.collection.immutable.List.foreach(List.scala:318)
+	at org.scalatest.SuperEngine.traverseSubNodes$1(Engine.scala:401)
+	at org.scalatest.SuperEngine.org$scalatest$SuperEngine$$runTestsInBranch(Engine.scala:396)
+	at org.scalatest.SuperEngine.runTestsImpl(Engine.scala:475)
+	at org.scalatest.wordspec.AnyWordSpecLike$class.runTests(AnyWordSpecLike.scala:1145)
+	at org.scalatest.wordspec.AnyWordSpec.runTests(AnyWordSpec.scala:1879)
+	at org.scalatest.Suite$class.run(Suite.scala:1112)
+	at org.scalatest.wordspec.AnyWordSpec.org$scalatest$wordspec$AnyWordSpecLike$$super$run(AnyWordSpec.scala:1879)
+	at org.scalatest.wordspec.AnyWordSpecLike$$anonfun$run$1.apply(AnyWordSpecLike.scala:1190)
+	at org.scalatest.wordspec.AnyWordSpecLike$$anonfun$run$1.apply(AnyWordSpecLike.scala:1190)
+	at org.scalatest.SuperEngine.runImpl(Engine.scala:535)
+	at org.scalatest.wordspec.AnyWordSpecLike$class.run(AnyWordSpecLike.scala:1190)
+	at org.scalatest.wordspec.AnyWordSpec.run(AnyWordSpec.scala:1879)
+	at org.scalatest.tools.SuiteRunner.run(SuiteRunner.scala:45)
+	at org.scalatest.tools.Runner$$anonfun$doRunRunRunDaDoRunRun$1.apply(Runner.scala:1320)
+	at org.scalatest.tools.Runner$$anonfun$doRunRunRunDaDoRunRun$1.apply(Runner.scala:1314)
+	at scala.collection.immutable.List.foreach(List.scala:318)
+	at org.scalatest.tools.Runner$.doRunRunRunDaDoRunRun(Runner.scala:1314)
+	at org.scalatest.tools.Runner$$anonfun$runOptionallyWithPassFailReporter$2.apply(Runner.scala:972)
+	at org.scalatest.tools.Runner$$anonfun$runOptionallyWithPassFailReporter$2.apply(Runner.scala:971)
+	at org.scalatest.tools.Runner$.withClassLoaderAndDispatchReporter(Runner.scala:1480)
+	at org.scalatest.tools.Runner$.runOptionallyWithPassFailReporter(Runner.scala:971)
+	at org.scalatest.tools.Runner$.run(Runner.scala:798)
+	at org.scalatest.tools.Runner.run(Runner.scala)
+	at org.jetbrains.plugins.scala.testingSupport.scalaTest.ScalaTestRunner.runScalaTest2(ScalaTestRunner.java:133)
+	at org.jetbrains.plugins.scala.testingSupport.scalaTest.ScalaTestRunner.main(ScalaTestRunner.java:27)
+Caused by: java.io.FileNotFoundException: File file:/opt/workspace/vp/spark-ribaltamento/target/scala-2.10/test-classes/com/vp/spark/persona does not exist
+	at org.apache.hadoop.fs.RawLocalFileSystem.getFileStatus(RawLocalFileSystem.java:520)
+	at org.apache.hadoop.fs.FilterFileSystem.getFileStatus(FilterFileSystem.java:398)
+	at org.apache.hadoop.hive.shims.Hadoop23Shims.getFullFileStatus(Hadoop23Shims.java:707)
+	at org.apache.hadoop.hive.ql.exec.DDLTask.truncateTable(DDLTask.java:4366)
+	... 75 more
+
+20/10/13 16:51:17 ERROR Driver: FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Exception while processing
+20/10/13 16:51:17 ERROR ClientWrapper: 
+======================
+HIVE FAILURE OUTPUT
+======================
+SET hive.support.sql11.reserved.keywords=false
+SET hive.metastore.warehouse.dir=file:/opt/workspace/vp/spark-ribaltamento/target/scala-2.10/test-classes/com/vp/spark/
+SET hive.exec.dynamic.partition=true
+SET hive.exec.dynamic.partition.mode=nonstrict
+OK
+FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Exception while processing
+
+======================
+END HIVE FAILURE OUTPUT
+======================
+          
