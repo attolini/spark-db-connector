@@ -5,6 +5,7 @@ import javax.inject.Inject
 
 sealed trait Tables
 
+case object Tabella extends Tables
 // creare case object per tutte le tabelle di Tables
 
 class Model @Inject()(val handler: SparkJDBCHandler) {
