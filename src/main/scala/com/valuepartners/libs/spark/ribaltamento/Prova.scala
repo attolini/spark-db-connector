@@ -1,6 +1,7 @@
 package com.valuepartners.libs.spark.ribaltamento
 
 import com.valuepartners.libs.spark.ribaltamento.connector._
+import com.valuepartners.libs.spark.ribaltamento.model.CustomEnumeratum.Source
 import com.valuepartners.libs.spark.ribaltamento.util.{SparkUtil, VPLogger}
 import org.apache.spark.sql.hive.HiveContext
 
@@ -27,9 +28,9 @@ object Prova extends VPLogger with SparkUtil {
                               isVerbose: IsVerbose,
                               jdbcUrl: JdbcServerURL): SparkJDBCHandler = {
     param match {
-      case "hive"  => new HiveConnector
-      case "mssql" => new MSSqlServerConnector
-      case _       => new GeneralConnector
+      case Source.Hive.entryName  => new HiveConnector
+      case Source.MSSql.entryName => new MSSqlServerConnector
+      case _                      => new GeneralConnector
     }
   }
 }
