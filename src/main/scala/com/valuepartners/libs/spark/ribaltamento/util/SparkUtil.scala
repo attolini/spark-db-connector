@@ -1,43 +1,58 @@
-package com.valuepartners.libs.spark.ribaltamento.util
+package com.vp.sparkhive.util
 
 import java.nio.file.{Files, Paths}
 
+import com.valuepartners.libs.spark.ribaltamento.util.VPLogger
+import org.apache.log4j.{Level, Logger}
+import org.apache.spark.sql.SparkSession
 import org.apache.spark.{SparkConf, SparkContext}
 
-import scala.util.Properties
+import scala.util.{Failure, Properties, Success, Try}
 
-trait SparkUtil {
+trait SparkMain extends SparkUtil with App {}
 
+trait SparkUtil extends VPLogger {
   val isLocal = Properties.envOrElse("local", "") != ""
 
+  val rootLogger = Logger.getRootLogger()
+  rootLogger.setLevel(Level.ERROR)
+
   def initSpark = {
-    val isLocal = Properties.envOrElse("local", "") != ""
-    val appName = getClass.getSimpleName
-    val conf    = new SparkConf().setAppName(appName).setMaster("local[*]")
-    import org.apache.spark.sql.hive._
-    val sc   = new SparkContext(conf)
-    val hive = new HiveContext(sc)
-    if (isLocal) {
-      hive.setConf("hive.metastore.warehouse.dir", getClass.getResource(".").toString)
+    Try {
+      val conf    = new SparkConf
+      val appName = getClass.getSimpleName
+      conf.setAppName(appName)
+
+      if (isLocal) {
+        conf.setMaster("local[*]")
+      }
+
+      val spark = SparkSession
+        .builder()
+        .config(conf)
+        .enableHiveSupport()
+        .getOrCreate()
+      spark.conf.set("hive.exec.dynamic.partition", "true")
+      spark.conf.set("hive.exec.dynamic.partition.mode", "nonstrict")
+      logger.info(s"Start $appName")
+      spark
+    } match {
+      case Success(_spark)        => _spark
+      case Failure(ex: Throwable) => throw ex
     }
-    hive.setConf("hive.exec.dynamic.partition", "true")
-    hive.setConf("hive.exec.dynamic.partition.mode", "nonstrict")
-
-    sc.setLogLevel("ERROR")
-    (sc, hive)
   }
-
-  def stopSpark(sc: SparkContext) = if (sc != null) sc.stop()
 
   def stopSparkHive(sc: SparkContext): Unit = {
     if (isLocal) {
-      try {
-        Files.delete(Paths.get("./metastore_db/db.lck"))
-      }
-      try {
-        Files.delete(Paths.get("./metastore_db/dbex.lck"))
-      }
+      Files.delete(Paths.get("./metastore_db/db.lck"))
+      Files.delete(Paths.get("./metastore_db/dbex.lck"))
     }
-    stopSpark(sc)
+    if (sc != null) sc.stop()
   }
+
+  def getRddFromResources(sc: SparkContext, path: String) = {
+    val filePath = this.getClass.getResource(path).getPath
+    sc.textFile(filePath)
+  }
+
 }

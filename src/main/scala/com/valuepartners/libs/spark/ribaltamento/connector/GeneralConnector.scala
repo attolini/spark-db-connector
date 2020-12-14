@@ -73,7 +73,7 @@ class GeneralConnector(implicit sqlC: SQLContext, jdbcUrl: JdbcServerURL, verbos
     }
   }
 
-  override def executeQuery(query: String, isVerbose: IsVerbose) = {
+  override def sql(query: String, isVerbose: IsVerbose) = {
     withResources(DriverManager.getConnection(jdbcSqlConnStr)) { conn =>
       withResources(conn.createStatement) { statement =>
         statement.executeUpdate(query)

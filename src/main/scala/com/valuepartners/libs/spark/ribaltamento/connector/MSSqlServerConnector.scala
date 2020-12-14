@@ -62,7 +62,7 @@ class MSSqlServerConnector(implicit sqlC: SQLContext, isVerbose: IsVerbose) exte
     }
   }
 
-  override def executeQuery(query: String, isVerbose: IsVerbose) = {
+  override def sql(query: String, isVerbose: IsVerbose) = {
     Class.forName(jdbcDriver)
     withResources(DriverManager.getConnection(jdbcSqlConnStr)) { conn =>
       withResources(conn.createStatement) { statement =>

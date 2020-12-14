@@ -15,5 +15,5 @@ trait SparkJDBCHandler {
 
   def write(table: Tables, values: DataFrame, isVerbose: IsVerbose): Either[Throwable, Unit]
 
-  def executeQuery(query: String, isVerbose: IsVerbose): Any
+  def sql(query: String, isVerbose: IsVerbose): Any
 }

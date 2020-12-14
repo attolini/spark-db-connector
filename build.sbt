@@ -2,9 +2,9 @@ name := "spark-ribaltamento"
 
 version := "0.0.1"
 
-scalaVersion := "2.10.5"
+scalaVersion := "2.11.12"
 
-val sparkVersion = "1.6.3"
+val sparkVersion = "2.3.2"
 
 val gitCommitString = SettingKey[String]("gitCommit")
 gitCommitString := s"${git.gitHeadCommit.value.getOrElse("[No commit Set]")} ${git.gitHeadCommitDate.value
@@ -30,9 +30,10 @@ resolvers += Resolver.sonatypeRepo("snapshots")
 resolvers += Resolver.sonatypeRepo("releases")
 
 libraryDependencies ++= Seq(
-  "org.apache.spark"   %% "spark-core"     % sparkVersion % "provided",
-  "org.apache.spark"   %% "spark-sql"      % sparkVersion % "provided",
-  "org.apache.spark"   %% "spark-hive"     % sparkVersion % "provided",
+  "org.apache.spark" %% "spark-core" % sparkVersion % "provided",
+  "org.apache.spark" %% "spark-sql"  % sparkVersion % "provided",
+  ("com.hortonworks.hive" %% "hive-warehouse-connector" % "1.0.0.3.1.4.0-315" % "provided")
+    .exclude("org.apache.hadoop", "hadoop-aws"),
   "org.apache.commons" % "commons-lang3"   % "3.5",
   "com.beachape"       % "enumeratum_2.10" % "1.5.15"
 )

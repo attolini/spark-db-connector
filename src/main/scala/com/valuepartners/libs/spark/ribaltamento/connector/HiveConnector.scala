@@ -2,12 +2,11 @@ package com.valuepartners.libs.spark.ribaltamento.connector
 
 import com.valuepartners.libs.spark.ribaltamento.model.Tables
 import com.valuepartners.libs.spark.ribaltamento.util.VPLogger
-import org.apache.spark.sql.hive.HiveContext
-import org.apache.spark.sql.{DataFrame, SaveMode}
+import org.apache.spark.sql.{DataFrame, SQLContext, SaveMode}
 
 import scala.util.{Failure, Success, Try}
 
-class HiveConnector(implicit sqlC: HiveContext, isVerbose: IsVerbose) extends SparkJDBCHandler with VPLogger {
+class HiveConnector(implicit sqlC: SQLContext, isVerbose: IsVerbose) extends SparkJDBCHandler with VPLogger {
 
   override def load(table: Tables, condition: Option[String], verbose: IsVerbose): Either[Throwable, DataFrame] = {
     Try(sqlC.sql(s"select * from ${table} where ${condition.getOrElse("1=1")}")) match {
@@ -64,7 +63,7 @@ class HiveConnector(implicit sqlC: HiveContext, isVerbose: IsVerbose) extends Sp
     }
   }
 
-  override def executeQuery(query: String, isVerbose: IsVerbose): Either[Throwable, DataFrame] =
+  override def sql(query: String, isVerbose: IsVerbose): Either[Throwable, DataFrame] =
     Try(sqlC.sql(query)) match {
       case Success(df)             => Right(df)
       case Failure(err: Throwable) => Left(err)
