@@ -1,6 +1,6 @@
-name := "spark-ribaltamento"
+name := "spark-db-connector"
 
-version := "0.0.1"
+version := "0.1.0"
 
 scalaVersion := "2.11.12"
 
@@ -15,7 +15,7 @@ lazy val root = (project in file("."))
   .settings(
     //buildInfoKeys := Seq[BuildInfoKey](name, version, scalaVersion, sbtVersion),
     buildInfoKeys := Seq[BuildInfoKey](version, gitCommitString),
-    buildInfoPackage := "com.valuepartners.libs.spark.ribaltamento",
+    buildInfoPackage := "com.valuepartners.libs.spark.dbConnector",
     buildInfoOptions += BuildInfoOption.ToMap,
     buildInfoOptions += BuildInfoOption.ToJson
   )

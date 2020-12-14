@@ -1,6 +1,6 @@
-package com.valuepartners.libs.spark.ribaltamento.model
+package com.valuepartners.libs.spark.dbConnector.model
 
-import com.valuepartners.libs.spark.ribaltamento.connector.SparkJDBCHandler
+import com.valuepartners.libs.spark.dbConnector.connector.SparkJDBCHandler
 import javax.inject.Inject
 
 sealed trait Tables

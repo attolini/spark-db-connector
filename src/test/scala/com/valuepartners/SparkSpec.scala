@@ -2,7 +2,7 @@ package com.valuepartners
 
 import com.valuepartners.libs.spark.model.Persona
 import com.valuepartners.libs.spark.util.Ut
-import com.valuepartners.libs.spark.ribaltamento.util.SparkUtil
+import com.valuepartners.libs.spark.dbConnector.util.SparkUtil
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 

@@ -1,4 +1,4 @@
-package com.valuepartners.libs.spark.ribaltamento.model
+package com.valuepartners.libs.spark.dbConnector.model
 
 trait Record {
   def toList: scala.collection.immutable.List[String]

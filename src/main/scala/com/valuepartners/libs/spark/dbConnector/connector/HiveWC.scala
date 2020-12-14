@@ -1,9 +1,9 @@
-package com.valuepartners.libs.spark.ribaltamento.connector
+package com.valuepartners.libs.spark.dbConnector.connector
 
 import com.hortonworks.spark.sql.hive.llap.HiveWarehouseSession
 import com.hortonworks.spark.sql.hive.llap.HiveWarehouseSession.HIVE_WAREHOUSE_CONNECTOR
-import com.valuepartners.libs.spark.ribaltamento.model.Tables
-import com.valuepartners.libs.spark.ribaltamento.util.VPLogger
+import com.valuepartners.libs.spark.dbConnector.model.Tables
+import com.valuepartners.libs.spark.dbConnector.util.VPLogger
 import org.apache.spark.sql.{DataFrame, SaveMode}
 
 import scala.util.{Failure, Success, Try}

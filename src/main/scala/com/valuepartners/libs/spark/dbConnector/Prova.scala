@@ -1,8 +1,8 @@
-package com.valuepartners.libs.spark.ribaltamento
+package com.valuepartners.libs.spark.dbConnector
 
-import com.valuepartners.libs.spark.ribaltamento.connector._
-import com.valuepartners.libs.spark.ribaltamento.model.CustomEnumeratum.Source
-import com.valuepartners.libs.spark.ribaltamento.util.{SparkUtil, VPLogger}
+import com.valuepartners.libs.spark.dbConnector.connector._
+import com.valuepartners.libs.spark.dbConnector.model.CustomEnumeratum.Source
+import com.valuepartners.libs.spark.dbConnector.util.{SparkUtil, VPLogger}
 import org.apache.spark.sql.hive.HiveContext
 
 object Prova extends VPLogger with SparkUtil {

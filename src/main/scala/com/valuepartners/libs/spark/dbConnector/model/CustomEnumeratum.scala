@@ -1,4 +1,4 @@
-package com.valuepartners.libs.spark.ribaltamento.model
+package com.valuepartners.libs.spark.dbConnector.model
 import enumeratum._
 import enumeratum.EnumEntry
 

@@ -2,7 +2,7 @@ package com.vp.sparkhive.util
 
 import java.nio.file.{Files, Paths}
 
-import com.valuepartners.libs.spark.ribaltamento.util.VPLogger
+import com.valuepartners.libs.spark.dbConnector.util.VPLogger
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.{SparkConf, SparkContext}

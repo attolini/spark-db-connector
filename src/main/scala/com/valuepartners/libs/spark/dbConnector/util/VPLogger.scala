@@ -1,4 +1,4 @@
-package com.valuepartners.libs.spark.ribaltamento.util
+package com.valuepartners.libs.spark.dbConnector.util
 
 import org.slf4j.LoggerFactory
 
