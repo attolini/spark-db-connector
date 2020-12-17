@@ -62,7 +62,7 @@ class GeneralConnector(implicit sqlC: SQLContext, jdbcUrl: JdbcServerURL, verbos
 
       withResources(conn.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS)) { statement =>
         values.foreach { rec =>
-          for (i <- 0 until numberOfColumns) statement.setString(i + 1, rec(i))
+          for (i <- 0 until numberOfColumns) statement.setString(i + 1, rec(i).toString)
           statement.addBatch()
         }
         statement.executeBatch.sum
