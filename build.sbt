@@ -15,7 +15,7 @@ lazy val root = (project in file("."))
   .settings(
     //buildInfoKeys := Seq[BuildInfoKey](name, version, scalaVersion, sbtVersion),
     buildInfoKeys := Seq[BuildInfoKey](version, gitCommitString),
-    buildInfoPackage := "com.valuepartners.libs.spark.dbConnector",
+    buildInfoPackage := "attolini.libs.spark.dbConnector",
     buildInfoOptions += BuildInfoOption.ToMap,
     buildInfoOptions += BuildInfoOption.ToJson
   )
@@ -32,10 +32,11 @@ resolvers += Resolver.sonatypeRepo("releases")
 libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-core" % sparkVersion % "provided",
   "org.apache.spark" %% "spark-sql"  % sparkVersion % "provided",
-  ("com.hortonworks.hive" %% "hive-warehouse-connector" % "1.0.0.3.1.4.0-315" % "provided")
-    .exclude("org.apache.hadoop", "hadoop-aws"),
+  "org.apache.spark" %% "spark-hive" % sparkVersion % "provided",
+//  ("com.hortonworks.hive" %% "hive-warehouse-connector" % "1.0.0.3.1.4.0-315" % "provided")
+//    .exclude("org.apache.hadoop", "hadoop-aws"),
   "org.apache.commons" % "commons-lang3"   % "3.5",
-  "com.beachape"       % "enumeratum_2.10" % "1.5.15"
+  "com.beachape"       %% "enumeratum" % "1.5.15"
 )
 
 unmanagedJars in Compile += file("lib")

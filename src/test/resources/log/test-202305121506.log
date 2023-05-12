@@ -1,5 +1,5 @@
-23/05/12 15:23:09 ERROR Shell: Failed to locate the winutils binary in the hadoop binary path
-java.io.IOException: Could not locate executable C:\Users\alessio.attolini\Documents\workspace\winutils\hadoop-2.8.3\bin\bin\winutils.exe in the Hadoop binaries.
+23/05/12 15:06:13 ERROR Shell: Failed to locate the winutils binary in the hadoop binary path
+java.io.IOException: Could not locate executable null\bin\winutils.exe in the Hadoop binaries.
 	at org.apache.hadoop.util.Shell.getQualifiedBinPath(Shell.java:378)
 	at org.apache.hadoop.util.Shell.getWinUtilsPath(Shell.java:393)
 	at org.apache.hadoop.util.Shell.<clinit>(Shell.java:386)
@@ -11,10 +11,10 @@ java.io.IOException: Could not locate executable C:\Users\alessio.attolini\Docum
 	at org.apache.spark.util.Utils$.classForName(Utils.scala:239)
 	at org.apache.spark.sql.SparkSession$.hiveClassesArePresent(SparkSession.scala:1079)
 	at org.apache.spark.sql.SparkSession$Builder.enableHiveSupport(SparkSession.scala:866)
-	at attolini.libs.spark.dbConnector.util.SparkUtil$$anonfun$1.apply(SparkUtil.scala:33)
-	at attolini.libs.spark.dbConnector.util.SparkUtil$$anonfun$1.apply(SparkUtil.scala:21)
+	at attolini.libs.spark.dbConnector.util.SparkUtil$$anonfun$1.apply(SparkUtil.scala:32)
+	at attolini.libs.spark.dbConnector.util.SparkUtil$$anonfun$1.apply(SparkUtil.scala:20)
 	at scala.util.Try$.apply(Try.scala:192)
-	at attolini.libs.spark.dbConnector.util.SparkUtil$class.initSpark(SparkUtil.scala:21)
+	at attolini.libs.spark.dbConnector.util.SparkUtil$class.initSpark(SparkUtil.scala:20)
 	at attolini.SparkSpec$$anonfun$1$$anon$1.initSpark(SparkSpec.scala:14)
 	at attolini.SparkSpec$fixture$class.$init$(SparkSpec.scala:11)
 	at attolini.SparkSpec$$anonfun$1$$anon$1.<init>(SparkSpec.scala:14)
@@ -63,3 +63,8 @@ java.io.IOException: Could not locate executable C:\Users\alessio.attolini\Docum
 	at org.scalatest.tools.Runner.run(Runner.scala)
 	at org.jetbrains.plugins.scala.testingSupport.scalaTest.ScalaTestRunner.runScalaTest2or3(ScalaTestRunner.java:38)
 	at org.jetbrains.plugins.scala.testingSupport.scalaTest.ScalaTestRunner.main(ScalaTestRunner.java:25)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.intellij.rt.execution.CommandLineWrapper.main(CommandLineWrapper.java:64)

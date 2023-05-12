@@ -1,4 +1,4 @@
-20/10/13 16:55:05 ERROR DDLTask: org.apache.hadoop.hive.ql.metadata.HiveException: Exception while processing
+20/10/13 18:22:42 ERROR DDLTask: org.apache.hadoop.hive.ql.metadata.HiveException: Exception while processing
 	at org.apache.hadoop.hive.ql.exec.DDLTask.truncateTable(DDLTask.java:4376)
 	at org.apache.hadoop.hive.ql.exec.DDLTask.execute(DDLTask.java:499)
 	at org.apache.hadoop.hive.ql.exec.Task.executeTask(Task.java:160)
@@ -82,8 +82,8 @@ Caused by: java.io.FileNotFoundException: File file:/opt/workspace/vp/spark-riba
 	at org.apache.hadoop.hive.ql.exec.DDLTask.truncateTable(DDLTask.java:4366)
 	... 75 more
 
-20/10/13 16:55:05 ERROR Driver: FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Exception while processing
-20/10/13 16:55:05 ERROR ClientWrapper: 
+20/10/13 18:22:42 ERROR Driver: FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Exception while processing
+20/10/13 18:22:42 ERROR ClientWrapper: 
 ======================
 HIVE FAILURE OUTPUT
 ======================
